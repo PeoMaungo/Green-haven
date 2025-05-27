@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Spartan', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5fff5;
+    }
+    h1 {
+      text-align: center;
+      margin: 30px 0;
+      color: #2e7d32;
+    }
+    .cart-count {
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 12px;
+      position: relative;
+      top: -10px;
+      left: -5px;
+    }
+    .cart-item {
+      display: flex;
+      align-items: center;
+      margin: 20px auto;
+      max-width: 700px;
+      padding: 15px;
+      border-bottom: 1px solid #ccc;
+      background-color: #fff;
+      border-radius: 8px;
+    }
+    .cart-item img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin-right: 20px;
+      border-radius: 6px;
+    }
+    .cart-item-details {
+      flex-grow: 1;
+    }
+    .quantity {
+      width: 60px;
+      margin: 10px 0;
+    }
+    .remove-btn {
+      background: red;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .checkout-btn {
+      display: block;
+      margin: 30px auto;
+      background: green;
+      color: white;
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    #total {
+      text-align: center;
+      font-size: 1.4rem;
+      margin-top: 20px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <section id="header">
+    <a href="#"><img src="images/leaf.png" class="logo" alt="Green Haven logo"></a>
+    <nav>
+      <ul id="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="active" href="cart.html"><i class="fa fa-cart-plus"></i> <span id="cart-count" class="cart-count">0</span></a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <!-- Cart Section -->
+  <h1>Your Cart</h1>
+  <div id="cart-items"></div>
+  <h2 id="total">Total: ₱0</h2>
+  <button class="checkout-btn" onclick="checkout()">Checkout</button>
+   <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <img src="images/leaf.png" alt="Green Haven logo" width="50">
+        <p>Bringing nature into your home since 2022</p>
+      </div>
+      
+        <div class="newsletter">
+          <p>Subscribe to our newsletter</p>
+          <form class="footer-subscribe">
+            <input type="email" placeholder="Your email">
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+
+    <div class="copyright">
+      <p>&copy; 2023 Green Haven. All rights reserved.</p>
+      
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartContainer = document.getElementById('cart-items');
+    const totalDisplay = document.getElementById('total');
+
+    function renderCart() {
+      cartContainer.innerHTML = '';
+      let total = 0;
+
+      if (cart.length === 0) {
+        cartContainer.innerHTML = '<p style="text-align:center;">Your cart is empty.</p>';
+        totalDisplay.textContent = 'Total: ₱0';
+        updateCartCount();
+        return;
+      }
+
+      cart.forEach((item, index) => {
+        // Clean the price string (e.g., remove ₱ or $)
+        const price = parseFloat((item.price || '0').replace(/[^\d.]/g, '')) || 0;
+        const quantity = item.quantity || 1;
+        const itemTotal = price * quantity;
+        total += itemTotal;
+
+        const itemHTML = `
+          <div class="cart-item">
+            <img src="${item.img}" alt="${item.name}">
+            <div class="cart-item-details">
+              <h3>${item.name}</h3>
+              <p>Price: ₱${price.toFixed(2)}</p>
+              <label>Qty:
+                <input type="number" class="quantity" min="1" value="${quantity}" onchange="updateQuantity(${index}, this.value)">
+              </label>
+              <br>
+              <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+            </div>
+          </div>
+        `;
+        cartContainer.innerHTML += itemHTML;
+      });
+
+      totalDisplay.textContent = `Total: ₱${total.toFixed(2)}`;
+      updateCartCount();
+    }
+
+    function updateQuantity(index, qty) {
+      cart[index].quantity = parseInt(qty) || 1;
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    function checkout() {
+      alert('Thank you for your purchase!');
+      localStorage.removeItem('cart');
+      cart = [];
+      renderCart();
+    }
+
+    function updateCartCount() {
+      const count = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+      document.getElementById('cart-count').textContent = count;
+    }
+
+    renderCart();
+  </script>
+   <!-- Other scripts... -->
+<script src="js/responsive.js"></script>
+
+</body>
+</html>

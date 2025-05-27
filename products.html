@@ -1,0 +1,590 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Haven</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome CDN for cart icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <section id="header">
+    <a href="#"><img src="images/leaf.png" class="logo" alt="Green Haven leaf logo"></a>
+    
+    <nav>
+      <ul id="navbar">
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html"><i class="fa fa-cart-plus" aria-hidden="true"></i> <span id="cart-count" class="cart-count">0</span></a></li>
+      </ul>
+    </nav>
+  </section>
+  
+  <!-- Main Section -->
+  <main>
+    <section class="text-box2">
+      <h1>Our Plant Collection</h1>
+      <p>Explore our beautiful selection of indoor and outdoor plants to bring nature into your space</p>
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search plants..." aria-label="Search plants">
+        <button onclick="searchPlants()"><i class="fas fa-search"></i></button>
+      </div>
+    </section>
+    
+    <section>
+      <div class="products">
+        <section>
+  <div class="products">
+        
+
+        <div class="product">
+          <img src="images/spiderplant.jpeg" alt="Spider plant in a pot" width="200">
+          <h3>Spider Plant</h3>
+          <p>Best for beginners, grows fast and strong.</p>
+          <p><strong>Price:</strong> P70</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product">
+          <img src="images/bamboopalm.jpeg" alt="Bamboo palm plant in a pot" width="200">
+          <h3>Bamboo Palm</h3>
+          <p>Gives tropical vibes. Perfect for indoors.</p>
+          <p><strong>Price:</strong> P150</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product">
+          <img src="images/pothos.jpeg" alt="Pothos plant in a pot" width="200">
+          <h3>Pothos</h3>
+          <p>Trailing plant, grows well in any room.</p>
+          <p><strong>Price:</strong> P65</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product">
+          <img src="images/monstera.jpeg" alt="Monstera plant in a pot" width="200">
+          <h3>Monstera</h3>
+          <p>Trendy "Swiss cheese" plant. Big beautiful leaves.</p>
+          <p><strong>Price:</strong> P180</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product">
+          <img src="images/fiddleleaffig.jpeg" alt="Fiddle leaf fig in a pot" width="200">
+          <h3>Fiddle Leaf Fig</h3>
+          <p>Large leafy plant, perfect as a room centerpiece.</p>
+          <p><strong>Price:</strong> P250</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product">
+          <img src="images/zzplant.jpeg" alt="ZZ plant in a pot" width="200">
+          <h3>ZZ Plant</h3>
+          <p>Almost indestructible, survives low light easily.</p>
+          <p><strong>Price:</strong> P120</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product">
+          <img src="images/croton.jpeg" alt="Croton plant in a pot" width="200">
+          <h3>Croton</h3>
+          <p>Colorful leaves bring life to any space.</p>
+          <p><strong>Price:</strong> P90</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product">
+          <img src="images/luckybamboo.jpeg" alt="Lucky bamboo in a pot" width="200">
+          <h3>Lucky Bamboo</h3>
+          <p>Believed to bring good fortune!</p>
+          <p><strong>Price:</strong> P50</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product">
+          <img src="images/orchid.jpeg" alt="Orchid plant in a pot" width="200">
+          <h3>Orchid</h3>
+          <p>Elegant flowers, available in many colors.</p>
+          <p><strong>Price:</strong> P200</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product ">
+          <img src="images/Agapanthus.jpeg" alt="Agapanthusplant in a pot" width="200">
+          <h3>Agapanthus</h3>
+          <p>Beautiful white flowers, purifies air.</p>
+          <p><strong>Price:</strong> P85</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product">
+          <img src="images/snakeplant.jpeg" alt="Snake plant in a pot" width="200">
+          <h3>Snake Plant</h3>
+          <p>Thrives on neglect, great for bedrooms.</p>
+          <p><strong>Price:</strong> P75</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product ">
+          <img src="images/rubber plant.jpg" alt="Rubber plant in a pot" width="200">
+          <h3>Rubber Plant</h3>
+          <p>Glossy leaves, grows tall over time.</p>
+          <p><strong>Price:</strong> P110</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product ">
+          <img src="images/Chinese Evergreen.jpeg"   alt="Chinese money plant in a pot" width="200">
+          <h3>Chinese Money Plant</h3>
+          <p>Unique circular leaves, very popular.</p>
+          <p><strong>Price:</strong> P95</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product ">
+        <img src="images/String of Pearls.jpg "  alt="string of perls plant  in a pot" width="200">"
+          <h3>String of Pearls</h3>
+          <p>Trailing succulent with bead-like leaves.</p>
+          <p><strong>Price:</strong> P65</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product ">
+          <img src="images/Aloe Vera.jpeg" alt="ZZ plant in a pot" width="200">
+          <h3>Aloe Vera</h3>
+          <p>Healing properties, easy to care for.</p>
+          <p><strong>Price:</strong> P55</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product placeholder">
+          <div class="placeholder-img"></div>
+          <h3>Boston Fern</h3>
+          <p>Lush green fronds, loves humidity.</p>
+          <p><strong>Price:</strong> P80</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product placeholder">
+          <div class="placeholder-img"></div>
+          <h3>Calathea</h3>
+          <p>Striking patterned leaves, prayer plant.</p>
+          <p><strong>Price:</strong> P100</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product placeholder">
+          <div class="placeholder-img"></div>
+          <h3>Dracaena</h3>
+          <p>Architectural plant, many varieties.</p>
+          <p><strong>Price:</strong> P120</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product placeholder">
+          <div class="placeholder-img"></div>
+          <h3>Philodendron</h3>
+          <p>Heart-shaped leaves, fast grower.</p>
+          <p><strong>Price:</strong> P70</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+</div>
+    
+  
+    
+        <div class="product ">
+          <img src="images/Agapanthus.jpeg" alt="Agapanthusplant in a pot" width="200">
+          <h3>Agapanthus</h3>
+          <p>Beautiful white flowers, purifies air.</p>
+          <p><strong>Price:</strong> P85</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+
+        <div class="product ">
+          <img src="images/lavender.jpeg" alt="Lavender plant " width="200">
+          <h3>Lavender</h3>
+          <p>Fragrant purple flowers, drought-tolerant.</p>
+          <p><strong>Price:</strong> P150</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product ">
+          <img src="images/Japanese Forest Grass.jpg" alt="Japanese Forest Grass" width="200">
+          <h3>Japanese Forest Grass</h3>
+          <p> Graceful, ornamental grass for shade.</p>
+          <p><strong>Price:</strong> P180</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product ">
+          <img src="images/Boxwood.jpg" alt="Boxwood" width="200">
+          <h3>Boxwood</h3>
+          <p>Evergreen shrub, perfect for hedges.</p>
+          <p><strong>Price:</strong> P220</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product ">
+          <img src="images/Hydrangea.jpeg" alt="Hydrangea" width="200">
+          <h3>Hydrangea</h3>
+          <p>Large flower clusters, color varies by soil.</p>
+          <p><strong>Price:</strong> P190</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product placeholder">
+          <img src="images/Hosta.jpg" alt="Hosta" width="200">
+          <h3>Hosta</h3>
+          <p>Large, leafy plant in many colors and sizes; very popular for shade.</p>
+          <p><strong>Price:</strong> P350</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product">
+          <img src="images/bleedingHeart.jpg" alt="Bleeding Heart" width="200">
+          <h3>Bleeding Heart</h3>
+          <p>Heart-shaped pink or white flowers in spring.</p>
+          <p><strong>Price:</strong> P120</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product">
+        <img src="images/Bougainvillea.jpg" alt="Bougainvillea" width="200">
+          <h3>Bougainvillea</h3>
+          <p>Vibrant colorful bracts, climbing vine.</p>
+          <p><strong>Price:</strong> P160</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+         <div class="product">
+        <img src="images/ferns.jpeg" alt="Ferns" width="200">
+          <h3>Ferns</h3>
+          <p>perfect for damp, shady spots.</p>
+          <p><strong>Price:</strong> P400</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+       
+           <div class="product">
+        <img src="images/Lantana.jpg" alt="Lantana" width="200">
+        <h3>Lantana</h3>
+          <p>Colorful flowering plant loved by butterflies.</p>
+          <p><strong>Price:</strong> P380</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+       <div class="product">
+        <img src="images/Astilbe.jpg" alt="Astilbe" width="200">
+          <h3>Astilbe</h3>
+          <p>Feathery, plume-like flowers and fern-like leaves.</p>
+          <p><strong>Price:</strong> P90</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product">
+        <img src="images/Begonia.jpg" alt="Begonia" width="200">
+          <h3>Begonia</h3>
+           <p>Comes in many varieties, great for pots or garden beds.</p>
+          <p><strong>Price:</strong> P170</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        
+        <div class="product">
+        <img src="images/Geranium.jpeg" alt="Geranium" width="200">
+          <h3>Geranium</h3>
+          <p>Classic bedding plant, colorful blooms.</p>
+          <p><strong>Price:</strong> P130</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product">
+        <img src="images/Lamium.jpg" alt="Lamium" width="200">
+          <h3>Lamium (Dead Nettle) </h3>
+          <p>Low-growing, silver-leaved ground cover with flowers.</p>
+          <p><strong>Price:</strong> P450</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+       <div class="product">
+        <img src="images/marigold.jpeg" alt="marigold" width="200">
+          <h3>Marigold</h3>
+          <p>Bright orange and yellow flowers, pest-repellent.</p>
+          <p><strong>Price:</strong> P110</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        <div class="product">
+        <img src="images/jasmine.jpeg" alt="Jasmine" width="200">
+          <h3>Jasmine</h3>
+          <p>Fragrant white flowers, climbing vine.</p>
+          <p><strong>Price:</strong> P140</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+        
+          <div class="product">
+        <img src="images/Mint.jpg" alt="Mint" width="200">
+        <h3>Mint </h3>
+          <p>Hardy herb, spreads quickly.</p>
+          <p><strong>Price:</strong> P300</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+       <div class="product">
+        <img src="images/oleander.jpg" alt="Oleader" width="200">
+          <h3>Oleader </h3>
+          <p>Hardy flowering shrub (note: toxic).</p>
+          <p><strong>Price:</strong> P180</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+         <div class="product">
+        <img src="images/Petunia.jpeg" alt="Petunia" width="200">
+          <h3>Petunia</h3>
+          <p> Easy to grow, available in many colors.</p>
+          <p><strong>Price:</strong> P160</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+         <div class="product">
+        <img src="images/rosemary.jpeg" alt="Rosemary" width="200">
+          <h3>Rosemary</h3>
+          <p> Aromatic herb that doubles as a landscape plant.</p>
+          <p><strong>Price:</strong> P210</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+        <div class="product">
+          <img src="images/cactus.jpeg" alt="Cactus plant in a pot" width="200">
+          <h3>Cactus</h3>
+          <p>Low-maintenance and stylish. Great for sunny spots.</p>
+          <p><strong>Price:</strong> P50</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+<div class="product">
+          <img src="images/cactus.jpeg" alt="Cactus plant in a pot" width="200">
+          <h3>Cactus</h3>
+          <p>Low-maintenance and stylish. Great for sunny spots.</p>
+          <p><strong>Price:</strong> P50</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+        <div class="product">
+          <img src="images/cactus.jpeg" alt="Cactus plant in a pot" width="200">
+          <h3>Cactus</h3>
+          <p>Low-maintenance and stylish. Great for sunny spots.</p>
+          <p><strong>Price:</strong> P50</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+        <div class="product">
+          <img src="images/cactus.jpeg" alt="Cactus plant in a pot" width="200">
+          <h3>Cactus</h3>
+          <p>Low-maintenance and stylish. Great for sunny spots.</p>
+          <p><strong>Price:</strong> P50</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+<div class="product">
+          <img src="images/cactus.jpeg" alt="Cactus plant in a pot" width="200">
+          <h3>Cactus</h3>
+          <p>Low-maintenance and stylish. Great for sunny spots.</p>
+          <p><strong>Price:</strong> P50</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+<div class="product">
+          <img src="images/cactus.jpeg" alt="Cactus plant in a pot" width="200">
+          <h3>Cactus</h3>
+          <p>Low-maintenance and stylish. Great for sunny spots.</p>
+          <p><strong>Price:</strong> P50</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+<div class="product">
+          <img src="images/cactus.jpeg" alt="Cactus plant in a pot" width="200">
+          <h3>Cactus</h3>
+          <p>Low-maintenance and stylish. Great for sunny spots.</p>
+          <p><strong>Price:</strong> P50</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+<div class="product">
+          <img src="images/cactus.jpeg" alt="Cactus plant in a pot" width="200">
+          <h3>Cactus</h3>
+          <p>Low-maintenance and stylish. Great for sunny spots.</p>
+          <p><strong>Price:</strong> P50</p>
+          <button class="add-to-cart" title="Add to Cart">
+    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+  </button>
+        </div>
+
+
+
+      </div>
+    </section>
+        
+      </div>
+    </section>
+  </main>
+   <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <img src="images/leaf.png" alt="Green Haven logo" width="50">
+        <p>Bringing nature into your home since 2022</p>
+      </div>
+    
+
+    <div class="copyright">
+      <p>&copy; 2023 Green Haven. All rights reserved.</p>
+      
+    </div>
+  
+
+  <script>
+    // Initialize cart from localStorage or create empty array
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    updateCartCount();
+
+    // Search functionality
+    function searchPlants() {
+      const filter = document.getElementById("searchInput").value.toLowerCase();
+      const products = document.querySelectorAll(".product");
+
+      products.forEach(product => {
+        const text = product.textContent.toLowerCase();
+        product.style.display = text.includes(filter) ? "" : "none";
+      });
+    }
+
+    // Add event listener for Enter key in search
+    document.getElementById("searchInput").addEventListener("keyup", function(event) {
+      if (event.key === "Enter") {
+        searchPlants();
+      }
+    });
+
+    // Add to cart functionality
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', function() {
+        const product = this.closest('.product');
+        const name = product.querySelector('h3').innerText;
+        const price = product.querySelector('p:last-of-type').innerText.replace('Price: ', '');
+        const img = product.querySelector('img') ? product.querySelector('img').src : '';
+        
+        // Add item to cart
+        cart.push({ name, price, img });
+        
+        // Save to localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+        
+        // Update cart count
+        updateCartCount();
+        
+        // Show confirmation
+        alert(`${name} added to cart!`);
+      });
+    });
+
+    // Function to update cart count display
+    function updateCartCount() {
+      document.getElementById('cart-count').textContent = cart.length;
+    }
+  </script>
+    </div>
+   </footer>
+    <!-- Other scripts... -->
+<script src="js/responsive.js"></script>
+</body>
+</html> 
