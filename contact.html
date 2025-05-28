@@ -8,12 +8,123 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="contact.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+
+  <style>
+    /* Mobile menu styles */
+    @media (max-width: 768px) {
+      #navbar {
+        position: absolute;
+        top: 70px;
+        right: -100%;
+        background-color: #2e7d32;
+        width: 20%;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        transition: right 0.3s ease-in-out;
+        z-index: 999;
+      }
+
+      #navbar.active {
+        right: 0;
+      }
+
+      .mobile-menu-button {
+        display: block;
+        font-size: 26px;
+        background: none;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .mobile-menu-button {
+        display: none;
+      }
+
+      #navbar {
+        position: static;
+        flex-direction: row;
+      }
+    }
+
+    /* Embedded styling for the contact form */
+    .contact-form {
+      background-color: #f9f9f9;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .contact-form h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #2d5c34;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #2d5c34;
+    }
+
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #c8e6c9;
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: #fff;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      border-color: #66bb6a;
+      box-shadow: 0 0 5px rgba(102, 187, 106, 0.5);
+      outline: none;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+    }
+
+    .submit-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #4caf50;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #43a047;
+    }
+  </style>
 </head>
 <body>
   <section id="header">
     <a href="#"><img src="images/leaf.png" class="logo" alt="Green Haven leaf logo"></a>
     <nav>
+      <button class="mobile-menu-button" onclick="toggleMenu()">☰</button>
       <ul id="navbar">
         <li><a href="index.html">Home</a></li>
         <li><a href="products.html">Products</a></li>
@@ -83,8 +194,6 @@
         <button type="submit" class="submit-btn">Send Message</button>
       </form>
     </div>
-
-    
   </main>
 
   <footer class="contact-footer">
@@ -139,9 +248,13 @@
         });
       }
     });
-  </script>
-   <!-- Other scripts... -->
-<script src="js/responsive.js"></script>
 
+    // Toggle mobile menu
+    function toggleMenu() {
+      document.getElementById("navbar").classList.toggle("active");
+    }
+  </script>
+  <!-- Other scripts... -->
+  <script src="js/responsive.js"></script>
 </body>
 </html>
