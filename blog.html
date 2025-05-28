@@ -1,17 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us - Green Haven</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="about.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Haven - Blog</title>
+  <link rel="stylesheet" href="style.css">
   
-  <!-- Responsive toggle CSS -->
+
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    /* Blog specific styles */
+    
+    .blog-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+    }
+    
+    .blog-posts {
+      display: grid;
+      gap: 30px;
+    }
+    
+    .blog-post {
+      background: #f9f9f9;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .blog-post:hover {
+      transform: translateY(-5px);
+    }
+    
+    .blog-post img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    
+    .post-content {
+      padding: 20px;
+    }
+    
+    .post-meta {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      display: flex;
+      gap: 15px;
+    }
+    
+    .post-meta i {
+      margin-right: 5px;
+      color: #4CAF50;
+    }
+    
+    .read-more {
+      display: inline-block;
+      margin-top: 15px;
+      color: #4CAF50;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .read-more:hover {
+      color: #3e8e41;
+    }
+    
+    .read-more i {
+      margin-left: 5px;
+      transition: transform 0.3s;
+    }
+    
+    .read-more:hover i {
+      transform: translateX(3px);
+    }
+    
+    /* Expanded content styles */
+    .expanded-content {
+      display: none;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
+      margin-top: 15px;
+    }
+    
+    .expanded-content h3 {
+      color: #4CAF50;
+      margin-top: 20px;
+    }
+    
+    .expanded-content ul {
+      padding-left: 20px;
+    }
+    
+    /* Sidebar styles */
+    .sidebar {
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 8px;
+      position: sticky;
+      top: 20px;
+    }
+    
+    .sidebar h3 {
+      border-bottom: 2px solid #4CAF50;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    
+    .categories li {
+      margin-bottom: 10px;
+    }
+    
+    .categories a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.3s;
+      display: block;
+      padding: 5px 0;
+    }
+    
+    .categories a:hover {
+      color: #4CAF50;
+      padding-left: 5px;
+    }
+    
+    .popular-post {
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px dashed #ddd;
+    }
+    
+    .popular-post:last-child {
+      border-bottom: none;
+    }
+    
+    .popular-post h4 {
+      margin: 0 0 5px 0;
+    }
+    
+    .popular-post a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .popular-post a:hover {
+      color: #4CAF50;
+    }
+    
+    .post-date {
+      color: #666;
+      font-size: 0.85rem;
+    }
+    
+    /* Feedback form styles */
+    .feedback-section {
+      background: #f9f9f9;
+      padding: 40px 0;
+      margin-top: 50px;
+      border-top: 1px solid #eee;
+    }
+    
+    .feedback-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 30px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    }
+    
+    .feedback-container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #4CAF50;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #555;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: inherit;
+      transition: border 0.3s;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: #4CAF50;
+      outline: none;
+    }
+    
+    .form-group textarea {
+      height: 150px;
+      resize: vertical;
+    }
+    
+    .submit-btn {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s;
+      display: block;
+      margin: 30px auto 0;
+    }
+    
+    .submit-btn:hover {
+      background: #3e8e41;
+      transform: translateY(-2px);
+    }
+    
+    .rating {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    
+    .rating input {
+      display: none;
+    }
+    
+    .rating label {
+      font-size: 1.8rem;
+      color: #ddd;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    
+    .rating label:hover,
+    .rating input:checked ~ label {
+      color: #ffc107;
+    }
+    
+    /* Mobile menu styles */
     @media (max-width: 768px) {
+      .blog-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .sidebar {
+        position: static;
+      }
+
       #navbar {
         position: absolute;
         top: 70px;
@@ -51,93 +309,324 @@
     }
   </style>
 </head>
-
 <body>
   <section id="header">
-    <a href="#"><img src="images/leaf.png" class="logo" alt="Green Haven leaf logo" /></a>
+    <a href="#"><img src="images/leaf.png" class="logo" alt="Green Haven leaf logo"></a>
+    
     <nav>
       <button class="mobile-menu-button" onclick="toggleMenu()">☰</button>
       <ul id="navbar">
         <li><a href="index.html">Home</a></li>
         <li><a href="products.html">Products</a></li>
-        <li><a class="active" href="about.html">About</a></li>
-        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a class="active" href="blog.html">Blog</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li>
-          <a href="cart.html"><i class="fa fa-cart-plus" aria-hidden="true"></i>
-            <span id="cart-count" class="cart-count">0</span>
-          </a>
-        </li>
+        <li><a href="cart.html"><i class="fa fa-cart-plus" aria-hidden="true"></i> <span id="cart-count" class="cart-count">0</span></a></li>
       </ul>
     </nav>
   </section>
 
-  <!-- About Us Section -->
-  <main class="about-main">
-    <section class="about-hero">
-      <div class="hero-content">
-        <h1>Our Green Story</h1>
-        <p>Discover the passion behind Green Haven and our journey to bring nature into your home</p>
-      </div>
-    </section>
+  <main>
+    
 
-    <section class="about-content">
-      <div class="about-container">
-        <div class="about-text">
-          <h2>About Green Haven</h2>
-          <p>Founded in 2022 by plant enthusiast Maungo Aone, Green Haven began as a small neighborhood plant shop with a big vision. What started as a passion project has blossomed into a beloved destination for plant lovers across the region.</p>
-          <p>We specialize exclusively in potted plants because we believe they're the perfect way to bring nature indoors. Each plant in our collection is carefully selected for its beauty, hardiness, and ability to thrive in home environments.</p>
-        </div>
-      </div>
-    </section>
+    <div class="blog-container">
+      <div class="blog-posts">
+        <article class="blog-post">
+          <img src="images/blog1.jpeg" alt="Indoor plant arrangement">
+          <div class="post-content">
+            <div class="post-meta">
+              <span><i class="far fa-calendar-alt"></i> June 15, 2023</span>
+              <span><i class="far fa-user"></i> By Sarah Green</span>
+            </div>
+            <h2>Top 5 Low-Maintenance Indoor Plants for Beginners</h2>
+            <p>Starting your indoor plant journey? These five plants are perfect for beginners who want to enjoy greenery without too much fuss. From the resilient Snake Plant to the forgiving Pothos, we'll guide you through the easiest plants to care for...</p>
+            <a href="#" class="read-more" onclick="toggleContent(event, 'content1')">Read More <i class="fas fa-arrow-right"></i></a>
+            
+            <div id="content1" class="expanded-content">
+              <h3>1. Snake Plant (Sansevieria)</h3>
+              <p>The snake plant is nearly indestructible. It thrives in low light and can go weeks without water. Its tall, upright leaves add architectural interest to any space.</p>
+              
+              <h3>2. ZZ Plant (Zamioculcas zamiifolia)</h3>
+              <p>With glossy, dark green leaves, the ZZ plant tolerates neglect like a champ. It grows well in low light and only needs watering every 2-3 weeks.</p>
+              
+              <h3>3. Pothos (Epipremnum aureum)</h3>
+              <p>This trailing vine is perfect for shelves or hanging baskets. It grows quickly and can survive in various light conditions. The heart-shaped leaves come in several attractive varieties.</p>
+              
+              <h3>4. Spider Plant (Chlorophytum comosum)</h3>
+              <p>Great for beginners, spider plants produce "babies" that you can propagate. They're non-toxic and excellent air purifiers.</p>
+              
+              <h3>5. Peace Lily (Spathiphyllum)</h3>
+              <p>With elegant white blooms and dark green leaves, peace lilies will actually droop when they need water, making care simple.</p>
+              
+              <h3>Care Tips for All These Plants:</h3>
+              <ul>
+                <li>Water only when the top inch of soil is dry</li>
+                <li>Use well-draining pots to prevent root rot</li>
+                <li>Wipe leaves occasionally to remove dust</li>
+                <li>Rotate plants periodically for even growth</li>
+              </ul>
+            </div>
+          </div>
+        </article>
 
-    <section class="mission-section">
-      <div class="mission-container">
-        <div class="mission-card">
-          <i class="fas fa-leaf"></i>
-          <h3>Our Mission</h3>
-          <p>To make urban living greener by providing high-quality plants that are easy to care for, helping people connect with nature in their daily lives.</p>
+        <article class="blog-post">
+          <img src="images/blog2.jpeg" alt="Plant watering techniques">
+          <div class="post-content">
+            <div class="post-meta">
+              <span><i class="far fa-calendar-alt"></i> May 28, 2023</span>
+              <span><i class="far fa-user"></i> By Michael Bloom</span>
+            </div>
+            <h2>Watering 101: How to Properly Hydrate Your Plants</h2>
+            <p>Overwatering is one of the most common plant care mistakes. Learn how to read your plant's signals and develop a watering routine that keeps them thriving. We'll cover different techniques for various plant types...</p>
+            <a href="#" class="read-more" onclick="toggleContent(event, 'content2')">Read More <i class="fas fa-arrow-right"></i></a>
+            
+            <div id="content2" class="expanded-content">
+              <h3>Understanding Your Plant's Water Needs</h3>
+              <p>Different plants have different water requirements based on their natural habitat. Tropical plants generally need more moisture than succulents or cacti.</p>
+              
+              <h3>The Finger Test</h3>
+              <p>Insert your finger about an inch into the soil. If it feels dry, it's time to water. If it's still moist, wait a day or two before checking again.</p>
+              
+              <h3>Signs of Overwatering</h3>
+              <ul>
+                <li>Yellowing leaves</li>
+                <li>Soft, mushy stems</li>
+                <li>Soil that stays constantly wet</li>
+                <li>Fungus gnats around the plant</li>
+              </ul>
+              
+              <h3>Signs of Underwatering</h3>
+              <ul>
+                <li>Dry, crispy leaves</li>
+                <li>Soil pulling away from pot edges</li>
+                <li>Drooping that doesn't improve after watering</li>
+              </ul>
+              
+              <h3>Watering Techniques</h3>
+              <p><strong>Top Watering:</strong> Pour water evenly over the soil until it runs out the drainage holes. Best for most houseplants.</p>
+              <p><strong>Bottom Watering:</strong> Place the pot in a tray of water and let the soil absorb moisture from the bottom. Ideal for plants prone to crown rot.</p>
+              <p><strong>Misting:</strong> Some tropical plants appreciate occasional misting, but this doesn't replace proper watering.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-post">
+          <img src="images/blog3.jpeg" alt="Plant propagation">
+          <div class="post-content">
+            <div class="post-meta">
+              <span><i class="far fa-calendar-alt"></i> April 10, 2023</span>
+              <span><i class="far fa-user"></i> By Lisa Fern</span>
+            </div>
+            <h2>Plant Propagation: How to Multiply Your Greenery for Free</h2>
+            <p>Did you know you can create new plants from your existing ones? This guide walks you through simple propagation techniques for common houseplants. Soon you'll be sharing plant babies with all your friends...</p>
+            <a href="#" class="read-more" onclick="toggleContent(event, 'content3')">Read More <i class="fas fa-arrow-right"></i></a>
+            
+            <div id="content3" class="expanded-content">
+              <h3>Basic Propagation Methods</h3>
+              
+              <h4>Stem Cuttings (Works for Pothos, Philodendron, etc.)</h4>
+              <ol>
+                <li>Cut a 4-6 inch stem section just below a node (where leaves emerge)</li>
+                <li>Remove lower leaves to expose 1-2 nodes</li>
+                <li>Place in water or moist soil</li>
+                <li>Roots should appear in 2-4 weeks</li>
+              </ol>
+              
+              <h4>Leaf Cuttings (Works for Snake Plants, Begonias)</h4>
+              <ol>
+                <li>Cut a healthy leaf into sections</li>
+                <li>For snake plants, make V-shaped cuts to remember which end is down</li>
+                <li>Place cut end slightly into moist soil</li>
+                <li>New plants will form at the base</li>
+              </ol>
+              
+              <h4>Division (Works for Spider Plants, Peace Lilies)</h4>
+              <ol>
+                <li>Remove plant from pot and gently separate root clumps</li>
+                <li>Ensure each division has roots and leaves</li>
+                <li>Repot in fresh soil</li>
+              </ol>
+              
+              <h3>Propagation Station Setup</h3>
+              <p>Create an ideal environment for rooting:</p>
+              <ul>
+                <li>Use clean, sharp scissors or pruners</li>
+                <li>Small jars or propagation stations for water rooting</li>
+                <li>Well-draining soil mix for direct soil propagation</li>
+                <li>Bright, indirect light</li>
+                <li>Optional: rooting hormone to speed up the process</li>
+              </ul>
+              
+              <h3>Troubleshooting</h3>
+              <p><strong>Rotting cuttings:</strong> Change water frequently or ensure soil isn't too wet</p>
+              <p><strong>No roots after weeks:</strong> Try a different node or use rooting hormone</p>
+              <p><strong>Wilting cuttings:</strong> Increase humidity by covering with a plastic bag</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <aside class="sidebar">
+        <div class="sidebar-widget">
+          <h3>Categories</h3>
+          <ul class="categories">
+            <li><a href="#">Indoor Plants</a></li>
+            <li><a href="#">Outdoor Gardening</a></li>
+            <li><a href="#">Plant Care</a></li>
+            <li><a href="#">DIY Projects</a></li>
+            <li><a href="#">Seasonal Tips</a></li>
+            <li><a href="#">Plant Identification</a></li>
+            <li><a href="#">Garden Design</a></li>
+          </ul>
         </div>
-        <div class="mission-card">
-          <i class="fas fa-hand-holding-heart"></i>
-          <h3>Our Values</h3>
-          <p>Sustainability, quality, and education. We source responsibly and provide detailed care instructions with every plant.</p>
+
+        <div class="sidebar-widget">
+          <h3>Popular Posts</h3>
+          <div class="popular-post">
+            <h4><a href="#">Best Plants for Small Spaces</a></h4>
+            <span class="post-date">May 5, 2023</span>
+          </div>
+          <div class="popular-post">
+            <h4><a href="#">Natural Pest Control Solutions</a></h4>
+            <span class="post-date">April 22, 2023</span>
+          </div>
+          <div class="popular-post">
+            <h4><a href="#">Creating a Plant Care Schedule</a></h4>
+            <span class="post-date">March 15, 2023</span>
+          </div>
+          <div class="popular-post">
+            <h4><a href="#">Fertilizing 101: What Your Plants Really Need</a></h4>
+            <span class="post-date">February 28, 2023</span>
+          </div>
         </div>
-        <div class="mission-card">
-          <i class="fas fa-seedling"></i>
-          <h3>Our Promise</h3>
-          <p>Every plant is nurtured with care and comes with our personal guarantee. We're here to support your plant journey.</p>
+
+        <div class="sidebar-widget">
+          <h3>Subscribe</h3>
+          <p>Get the latest plant tips delivered to your inbox!</p>
+          <form class="subscribe-form">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit" class="submit-btn">Subscribe</button>
+          </form>
         </div>
+      </aside>
+    </div>
+
+    <section class="feedback-section">
+      <div class="feedback-container">
+        <h2>Share Your Feedback</h2>
+        <form id="feedbackForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label>How would you rate our blog?</label>
+            <div class="rating">
+              <input type="radio" id="star5" name="rating" value="5">
+              <label for="star5">★</label>
+              <input type="radio" id="star4" name="rating" value="4">
+              <label for="star4">★</label>
+              <input type="radio" id="star3" name="rating" value="3">
+              <label for="star3">★</label>
+              <input type="radio" id="star2" name="rating" value="2">
+              <label for="star2">★</label>
+              <input type="radio" id="star1" name="rating" value="1">
+              <label for="star1">★</label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject">
+              <option value="general">General Feedback</option>
+              <option value="suggestion">Suggestion</option>
+              <option value="question">Question</option>
+              <option value="technical">Technical Issue</option>
+              <option value="content">Content Request</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">Submit Feedback</button>
+        </form>
       </div>
     </section>
   </main>
 
-  <footer class="about-footer">
+  <footer>
     <div class="footer-container">
       <div class="footer-col">
-        <img src="images/leaf.png" alt="Green Haven logo" width="50" />
+        <img src="images/leaf.png" alt="Green Haven logo" width="50">
         <p>Bringing nature into your home since 2022</p>
       </div>
+      
+        <div class="newsletter">
+          <p>Subscribe to our newsletter</p>
+          <form class="footer-subscribe">
+            <input type="email" placeholder="Your email">
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
     </div>
+
     <div class="copyright">
       <p>&copy; 2023 Green Haven. All rights reserved.</p>
+      
     </div>
   </footer>
 
-  <!-- Cart and toggle script -->
   <script>
-    // Cart count script
-    document.addEventListener('DOMContentLoaded', function () {
+    // Initialize cart count
+    document.addEventListener('DOMContentLoaded', function() {
       const cart = JSON.parse(localStorage.getItem('cart')) || [];
       document.getElementById('cart-count').textContent = cart.length;
+      
+      // Feedback form submission
+      const feedbackForm = document.getElementById('feedbackForm');
+      if (feedbackForm) {
+        feedbackForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          alert('Thank you for your feedback! We appreciate your input.');
+          this.reset();
+          
+          // Reset star rating
+          document.querySelectorAll('.rating input').forEach(radio => {
+            radio.checked = false;
+          });
+        });
+      }
     });
+    
+    // Toggle expanded content
+    function toggleContent(event, contentId) {
+      event.preventDefault();
+      const content = document.getElementById(contentId);
+      const link = event.currentTarget;
+      
+      if (content.style.display === 'block') {
+        content.style.display = 'none';
+        link.innerHTML = 'Read More <i class="fas fa-arrow-right"></i>';
+      } else {
+        content.style.display = 'block';
+        link.innerHTML = 'Show Less <i class="fas fa-arrow-up"></i>';
+      }
+    }
 
-    // Toggle menu
+    // Toggle mobile menu
     function toggleMenu() {
       document.getElementById("navbar").classList.toggle("active");
     }
   </script>
-
   <script src="js/responsive.js"></script>
 </body>
 </html>
