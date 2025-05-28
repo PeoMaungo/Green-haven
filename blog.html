@@ -585,8 +585,7 @@
     </div>
   </footer>
 
-  <script>
-    // Initialize cart count
+  // Initialize cart count
     document.addEventListener('DOMContentLoaded', function() {
       const cart = JSON.parse(localStorage.getItem('cart')) || [];
       document.getElementById('cart-count').textContent = cart.length;
@@ -607,27 +606,24 @@
       }
     });
     
-    // Wait for DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-  
-  if (mobileMenuButton && navbar) {
-    mobileMenuButton.addEventListener('click', function() {
-      console.log('Menu toggle clicked'); // For debugging
-      navbar.classList.toggle('active');
+    // Toggle expanded content
+    function toggleContent(event, contentId) {
+      event.preventDefault();
+      const content = document.getElementById(contentId);
+      const link = event.currentTarget;
       
-      // Change icon based on state
-      if (navbar.classList.contains('active')) {
-        this.innerHTML = '✕'; // Close icon when menu is open
+      if (content.style.display === 'block') {
+        content.style.display = 'none';
+        link.innerHTML = 'Read More <i class="fas fa-arrow-right"></i>';
       } else {
-        this.innerHTML = '☰'; // Hamburger icon when menu is closed
+        content.style.display = 'block';
+        link.innerHTML = 'Show Less <i class="fas fa-arrow-up"></i>';
       }
-    });
-  }
-  
-  // Rest of your existing code (cart count, etc.)
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  document.getElementById('cart-count').textContent = cart.length;
-});
+    }
+
+    // Toggle mobile menu
+    function toggleMenu() {
+      document.getElementById("navbar").classList.toggle("active");
     }
   </script>
   <script src="js/responsive.js"></script>
