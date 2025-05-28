@@ -607,24 +607,30 @@
       }
     });
     
-    // Toggle expanded content
-    function toggleContent(event, contentId) {
-      event.preventDefault();
-      const content = document.getElementById(contentId);
-      const link = event.currentTarget;
+    // Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+  // Mobile menu toggle
+  const mobileMenuButton = document.querySelector('.mobile-menu-button');
+  const navbar = document.getElementById('navbar');
+  
+  if (mobileMenuButton && navbar) {
+    mobileMenuButton.addEventListener('click', function() {
+      console.log('Menu toggle clicked'); // For debugging
+      navbar.classList.toggle('active');
       
-      if (content.style.display === 'block') {
-        content.style.display = 'none';
-        link.innerHTML = 'Read More <i class="fas fa-arrow-right"></i>';
+      // Change icon based on state
+      if (navbar.classList.contains('active')) {
+        this.innerHTML = '✕'; // Close icon when menu is open
       } else {
-        content.style.display = 'block';
-        link.innerHTML = 'Show Less <i class="fas fa-arrow-up"></i>';
+        this.innerHTML = '☰'; // Hamburger icon when menu is closed
       }
-    }
-
-    // Toggle mobile menu
-    function toggleMenu() {
-      document.getElementById("navbar").classList.toggle("active");
+    });
+  }
+  
+  // Rest of your existing code (cart count, etc.)
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  document.getElementById('cart-count').textContent = cart.length;
+});
     }
   </script>
   <script src="js/responsive.js"></script>
